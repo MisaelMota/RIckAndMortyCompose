@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.rickmortycompose.ui.RickAndMortyApp
+import com.example.rickmortycompose.navigation.AppNavigation
 import com.example.rickmortycompose.ui.theme.RickMortyComposeTheme
 import com.example.rickmortycompose.viewmodel.CharacterViewmodel
 
@@ -25,26 +25,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val viewModel:CharacterViewmodel=viewModel()
-                    RickAndMortyApp(viewModel = viewModel )
+                    AppNavigation()
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    RickMortyComposeTheme {
-        Greeting("Android")
-    }
-}
