@@ -16,16 +16,16 @@ fun AppNavigation() {
     val navController = rememberNavController()
     val characterViewModel: CharacterViewmodel= viewModel()
 
-    NavHost(navController = navController, startDestination = AppButtonBarScreens.MainScreen.route){
-            composable(AppButtonBarScreens.MainScreen.route){
+    NavHost(navController = navController, startDestination = AppScreens.MainScreen.route){
+            composable(AppScreens.MainScreen.route){
                 RickAndMortyCharacterList(navController,characterViewModel)
             }
 
-            composable(AppButtonBarScreens.EpisodesScreen.route){
+            composable(AppScreens.EpisodesScreen.route){
                 RickAndMortyEpisodesList(navController)
             }
 
-            composable(AppButtonBarScreens.UserScreen.route){
+            composable(AppScreens.UserScreen.route){
                 UserSettings(navController)
             }
     }
