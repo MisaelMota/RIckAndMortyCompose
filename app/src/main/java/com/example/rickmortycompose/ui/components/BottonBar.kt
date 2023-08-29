@@ -1,6 +1,7 @@
 package com.example.rickmortycompose.ui.components
 
 import android.graphics.drawable.Icon
+import android.util.Log
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
@@ -43,6 +44,7 @@ fun BottonBar(navController: NavController) {
                 selected = selectedItemIndex == index,
                 onClick = {
                     selectedItemIndex = index
+                    Log.d("Route","Route: ${item.route}")
                     navController.navigate(item.route)
                 },
                 label = { Text(text = item.title)},

@@ -54,14 +54,14 @@ fun RickAndMortyCharacterList(navController: NavController,viewModel: CharacterV
                     .padding(paddingValues)
                     .padding(top = 16.dp)
             ) {
-                CharacterList(characters)
+                CharacterList(characters,navController)
             }
         },
     )
 }
 
 @Composable
-fun CharacterList(characters: List<Character>) {
+fun CharacterList(characters: List<Character>,navController: NavController) {
     if (characters.isNotEmpty()){
         LazyColumn {
             items(characters) { character ->

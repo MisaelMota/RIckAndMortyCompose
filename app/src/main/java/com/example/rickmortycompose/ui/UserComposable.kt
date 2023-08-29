@@ -24,13 +24,13 @@ fun UserSettings(navController: NavController){
                     .padding(paddingValues)
                     .padding(top = 16.dp)
             ) {
-                SettingList()
+                SettingList(navController)
             }
         }
     )
 }
 
 @Composable
-fun SettingList (){
+fun SettingList (navController: NavController){
     Text(text = "Settings Coming...")
 }

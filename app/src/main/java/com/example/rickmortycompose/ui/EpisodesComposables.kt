@@ -24,14 +24,15 @@ fun RickAndMortyEpisodesList(navController: NavController){
                     .padding(paddingValues)
                     .padding(top = 16.dp)
             ) {
-                EpisodesList()
+                EpisodesList(navController)
+
             }
         }
     )
 }
 
 @Composable
-fun EpisodesList (){
+fun EpisodesList (navController: NavController){
     Text(text = "Episodes Coming...")
 }
 
