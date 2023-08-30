@@ -28,16 +28,21 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavController
+import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.rickmortycompose.navigation.AppScreens
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BottonBar(navController: NavController) {
+fun BottonBar(navController: NavController,
+              ) {
     var selectedItemIndex by rememberSaveable {
         mutableStateOf(0)
     }
 
+    val navBackStackEntry by navController.currentBackStackEntryAsState()
+    val selectedDestination = navBackStackEntry?.destination?.route ?: AppScreens.MainScreen.route
     NavigationBar {
         items.forEachIndexed { index, item ->
             NavigationBarItem(
@@ -45,7 +50,8 @@ fun BottonBar(navController: NavController) {
                 onClick = {
                     selectedItemIndex = index
                     Log.d("Route","Route: ${item.route}")
-                    navController.navigate(item.route)
+                    //navController.navigate(item.route)
+                    navigateTo(item.route, navController as NavHostController)
                 },
                 label = { Text(text = item.title)},
                 alwaysShowLabel = false,
@@ -79,6 +85,17 @@ fun BottonBar(navController: NavController) {
 }
 
 
+    fun navigateTo(destination:String,navController: NavHostController) {
+        navController.navigate(destination) {
+            popUpTo(AppScreens.MainScreen.route) {
+                inclusive = true
+            }
+            launchSingleTop = true
+        }
+    }
+
+
+
 data class BottonNavigationItem(
     val title: String,
     val selectedIcon: ImageVector,
@@ -110,5 +127,5 @@ val items = listOf(
         unSelectedIcon = Icons.Outlined.AccountBox,
         hasNews = false,
         route = "UserScreen"
-    ),
+    )
 )

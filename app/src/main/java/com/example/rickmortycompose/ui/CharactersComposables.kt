@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.Text
+import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.NavigationBar
@@ -34,6 +35,7 @@ import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
 import com.example.rickmortycompose.models.Character
 import com.example.rickmortycompose.ui.components.AppBar
+import com.example.rickmortycompose.ui.components.BottonBar
 import com.example.rickmortycompose.viewmodel.CharacterViewmodel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -53,8 +55,10 @@ fun RickAndMortyCharacterList(navController: NavController,viewModel: CharacterV
                 modifier = Modifier
                     .padding(paddingValues)
                     .padding(top = 16.dp)
+                    .padding(bottom = 80.dp)
             ) {
                 CharacterList(characters,navController)
+
             }
         },
     )

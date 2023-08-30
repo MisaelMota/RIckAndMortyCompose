@@ -17,7 +17,7 @@ import com.example.rickmortycompose.ui.components.AppBar
 @Composable
 fun UserSettings(navController: NavController){
     Scaffold(
-        topBar = { AppBar("Episodes") },
+        topBar = { AppBar("Settings") },
         content = {paddingValues ->
             Box(
                 modifier = Modifier
